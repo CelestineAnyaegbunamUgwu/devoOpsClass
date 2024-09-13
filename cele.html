@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="refresh" content="10" />
+
+</head>
+
+<body>
+    <h3>Your current location:'</h3>
+    <span style="color :orange; font-weight :bolder;">LATITUDE: <input style=" border-style:none;" id="lat" type="text" /> </span>
+   <br /> <span style="color :blue; font-weight :bolder;">
+        LONGITUDE: <input style=" border-style:none;" id="lon" type="text" />
+    </span>
+
+        <script type="text/javascript" id="getCord">
+
+            if (typeof navigator.geolocation === 'undefined') {
+                alert("Geolocation services are not supported by your web browser");
+            }
+
+            else {
+                navigator.geolocation.getCurrentPosition(handleLocation, handleError);
+            }
+
+            function handleLocation(position) {
+
+                var lat = position.coords.latitude;
+
+                document.getElementById('lat').value = lat;
+
+                var lon = position.coords.longitude;
+
+                document.getElementById('lon').value = lon;
+
+            }
+
+            function handleError(error) {
+                switch (error.code) {
+                    case error.TIMEOUT:
+                        alert('Timeout');
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert('Position unavailable');
+                        break;
+                    case error.PERMISSION_DENIED:
+                        alert('Permission denied');
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        alert('Unknown error');
+                        break;
+                }
+            }
+        </script>
+</body>
+
+</html>

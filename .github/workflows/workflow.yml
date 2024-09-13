@@ -19,6 +19,7 @@ jobs:
 
     - name: Check Workflow Success
       run: echo "The workflow passed successfully!"
+<<<<<<< HEAD
   launch-personal-site:
     runs-on: ubuntu-latest
 
@@ -43,3 +44,5 @@ jobs:
 
     - name: Check Workflow Success
       run: echo "The workflow passed successfully!"
+=======
+>>>>>>> 4428c92e711a38f7fb5fccff8ebd6e5b0180d96d
